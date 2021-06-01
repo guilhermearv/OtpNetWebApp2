@@ -1,0 +1,26 @@
+﻿@model OtpNetWebApp2.Models.VerifyAuthViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VerifyAuth</title>
+
+</head>
+<body>
+    @using (Html.BeginForm("VerifyAuth", "Home", FormMethod.Post))
+    {
+        <div style="padding-top:50px;">
+            @ViewBag.totpCode
+            <div class="form-group">
+                <label for="Username">Code 2FA</label>
+                @Html.TextBoxFor(x => x.Passcode, new { @class = "form-control", @placeholder = "Enter code" })
+                @Html.ValidationMessageFor(x=>x.Passcode)
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+</body>
+</html>
+

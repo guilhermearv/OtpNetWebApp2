@@ -1,0 +1,35 @@
+﻿@model OtpNetWebApp2.Models.LoginViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    { 
+        <div style="padding-top:50px;">
+            <div class="form-group">
+                <label for="Username">User Name</label>
+                @Html.TextBoxFor(x => x.Username, new { @class = "form-control", @placeholder = "Enter user name" })
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Enter password" })
+            </div>
+            <div class="form-check">
+                @Html.CheckBoxFor(x => x.Verify2FA, new { @class = "form-check-input" })
+                <label class="form-check-label" for="Verify2FA">Verify 2FA</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    }
+</body>
+</html>
